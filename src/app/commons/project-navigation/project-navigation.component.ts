@@ -274,6 +274,14 @@ export class ProjectNavigationComponent implements OnChanges, OnInit {
     return this.project.isWikiActivated && this.project.myPermissions.includes(Permissions.viewWikiPages);
   }
 
+  get isAbleToAddIssue() {
+    return this.project.myPermissions.includes(Permissions.addIssue);
+  }
+
+  public newIssue() {
+    // console.log('New issue');
+  }
+
   public toggleScrum() {
     if (this.collapsed) {
       this.router.navigate(['/project', this.project.slug, 'backlog']);
